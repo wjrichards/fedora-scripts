@@ -10,7 +10,7 @@ sleep 2
 read -p 'Press [Enter] To Start'
 sleep 1
 
-echo  'This May Take A While'
+echo '-------This May Take A While-------'
 sleep 2
 
 # INSTALLING PLUGINS
