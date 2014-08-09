@@ -29,16 +29,36 @@ echo '------Installing RPM Fusion------'
 sleep 2
 sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
+echo '------Installing RPM Fusion------'
+sleep 2
+sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+
+
 # ENABLING MP3 AND DVD PLAYBACKS
 echo '------Installing Media Codecs------'
 sleep 2
 sudo yum install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg ffmpeg mencoder ffmpeg2theora mplayer libdvdcss
 
-
 # INSTALLING FAVOURITE APPS
-echo '------Installing A LIST Of MY FAVOURITE APPS------'
+echo '------Installing A LIST Of FAVOURITE APPS------'
 sleep 2
-sudo yum install chrome 
+sudo yum install chrome transmission
+
+echo '------Installing A LIST Of MEDIA APPS------'
+sleep 2
+sudo yum install vlc 
+
+echo '------Installing A LIST Of DESIGN & PRODUCTION APPS------'
+sleep 2
+sudo yum install inkscape gimp 
+
+echo '------Installing A LIST Of DEVELOPMENT APPS------'
+sleep 2
+sudo yum install git
+
+echo '------Installing A LIST Of GNOME EXTRAS------'
+sleep 2
+sudo yum install gnome-music epiphany-browser
 
 # CLEANING YUM CACHE
 echo '------Almost Done, Cleaning Yum Cache------'
