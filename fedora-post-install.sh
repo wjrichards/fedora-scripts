@@ -67,5 +67,4 @@ sudo yum clean all
 
 sleep 2
 echo '#------FINISHED------#'
-
 exit $?
