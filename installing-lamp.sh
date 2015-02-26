@@ -14,8 +14,10 @@ sleep 2
 echo '---------Installing Apache---------'
 sudo yum install httpd
 sleep 2
+
 echo '---------Start httped---------'
 sudo service httpd start
+sleep 2
 
 # Installing MySQL
 echo '---------Installing MySQL---------'
