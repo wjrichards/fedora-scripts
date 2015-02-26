@@ -8,7 +8,7 @@ echo '#-------------------------------------------#'
 sleep 2
 
 read -p 'Press [Enter] Key To Start'
-sleep 1
+sleep 2
 
 # Installing freetype-freeworld package
 echo '---------Installing freetype-freeworld package---------'
