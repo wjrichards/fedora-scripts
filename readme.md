@@ -1,3 +1,3 @@
-# Alpha Scripts (Testing)
+# Alpha Scripts (Memory Dump *Testing*)
 
 # Fedora Post Installation Scripts
