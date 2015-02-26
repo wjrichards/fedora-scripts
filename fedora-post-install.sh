@@ -46,11 +46,11 @@ sudo yum install chrome transmission
 
 echo '------Installing A LIST Of MEDIA APPS------'
 sleep 2
-sudo yum install vlc 
+sudo yum install vlc
 
 echo '------Installing A LIST Of DESIGN & PRODUCTION APPS------'
 sleep 2
-sudo yum install inkscape gimp 
+sudo yum install inkscape gimp
 
 echo '------Installing A LIST Of DEVELOPMENT APPS------'
 sleep 2
@@ -58,7 +58,7 @@ sudo yum install git
 
 echo '------Installing A LIST Of GNOME EXTRAS------'
 sleep 2
-sudo yum install gnome-music epiphany-browser
+sudo yum install gnome-music epiphany
 
 # CLEANING YUM CACHE
 echo '------Almost Done, Cleaning Yum Cache------'
