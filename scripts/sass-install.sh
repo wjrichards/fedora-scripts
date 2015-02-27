@@ -11,7 +11,7 @@ read -p 'Press [Enter] Key To Start'
 sleep 2
 
 # Installing Dependencies
-echo '-------Installing Ruby and other Dependenties------'
+echo '-------Installing Ruby and Others------'
 sudo dnf install ruby nodejs git
 sleep 2
 
