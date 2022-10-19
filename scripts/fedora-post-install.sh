@@ -37,11 +37,6 @@ sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute
 sudo dnf install kernel-headers kernel-devel tar bzip2 make automake gcc gcc-c++ pciutils elfutils-libelf-devel libglvnd-opengl libglvnd-glx libglvnd-devel acpid pkgconfig dkms
 sudo dnf module install nvidia-driver:latest-dkms
 
-# Enabling MP3 & DVD Playbacks
-echo '------Installing Media Codecs------'
-sleep 2
-sudo dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg ffmpeg mencoder ffmpeg2theora mplayer libdvdcss
-
 # Installing Favorite Apps
 echo '------Installing Brave Browser------'
 sleep 2
@@ -81,4 +76,3 @@ sudo sudo dnf update
 echo '#------FINISHED------#'
 sleep 2
 exit $?
-sudo reboot
