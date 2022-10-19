@@ -14,7 +14,7 @@ sleep 2
 echo '---------Installing freetype-freeworld package---------'
 sleep 2
 echo '------Supply Root Password------'
-sudo yum install freetype-freeworld
+sudo dnf install freetype-freeworld
 
 # Setting the hinting style and enable RGB anti-aliasing
 echo '---------Setting the hinting style and enable RGB anti-aliasing.---------'
