@@ -10,58 +10,75 @@ sleep 2
 read -p 'Press [Enter] To Start'
 sleep 2
 
-# Installing Plugins
-echo '-------Updating Sources------'
+# Enable the fastest mirror
 sleep 2
-echo '------Supply Root Password------'
-sudo yum install yum-plugin-fastestmirror -y
+echo 'fastestmirror=true' | sudo tee -a /etc/dnf/dnf.conf
+echo 'max_parallel_downloads=5' | sudo tee -a /etc/dnf/dnf.conf
+echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
+cat /etc/dnf/dnf.conf
 
 # Updating System Sources
 echo '-------Updating System------'
 sleep 2
-sudo yum update -y
+sudo dnf update -y
 
 # Installing Third Party Repositories
-echo '------Installing RPM Fusion------'
+echo '------ Installing RPM Fusion ------'
 sleep 2
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
-echo '------Installing RPM Fusion------'
+echo '------ Installing App-Stream Meta-data ------'
 sleep 2
-sudo yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+sudo dnf groupupdate core -y
 
+echo '------ Installing Nvidia Drivers $ Dependencies ------'
+sleep 2
+sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/fedora36/x86_64/cuda-fedora36.repo
+sudo dnf install kernel-headers kernel-devel tar bzip2 make automake gcc gcc-c++ pciutils elfutils-libelf-devel libglvnd-opengl libglvnd-glx libglvnd-devel acpid pkgconfig dkms
+sudo dnf module install nvidia-driver:latest-dkms
 
 # Enabling MP3 & DVD Playbacks
 echo '------Installing Media Codecs------'
 sleep 2
-sudo yum install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg ffmpeg mencoder ffmpeg2theora mplayer libdvdcss
+sudo dnf install gstreamer-plugins-bad gstreamer-plugins-bad-free-extras gstreamer-plugins-bad-nonfree gstreamer-plugins-ugly gstreamer-ffmpeg ffmpeg mencoder ffmpeg2theora mplayer libdvdcss
 
-# Installing Favourite Apps
-echo '------Installing Favourite Apps------'
+# Installing Favorite Apps
+echo '------Installing Brave Browser------'
 sleep 2
-sudo yum install chrome steam
+sudo dnf install dnf-plugins-core
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+sudo dnf install brave-browser
 
 echo '------Installing Media Apps------'
 sleep 2
-sudo yum install vlc
+sudo dnf install vlc
 
 echo '------Installing Design & Production Apps------'
 sleep 2
-sudo yum install inkscape gimp
+sudo dnf install inkscape gimp
 
 echo '------Installing Development Apps & Dependencies------'
 sleep 2
-sudo yum install git atom bracket
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf check-update
+sudo dnf install code
+
 
 echo '------Installing GNOME Extras------'
 sleep 2
-sudo yum install gnome-music epiphany
+sudo dnf install gnome-music epiphany
 
 # Cleaning Cache
-echo '------Almost Done, Cleaning Yum Cache------'
+echo '------Almost Done, Cleaning dnf Cache------'
 sleep 2
-sudo yum clean all
+sudo dnf upgrade --refresh
+sudo dnf check
+sudo dnf autoremove
+sudo sudo dnf update
 
 echo '#------FINISHED------#'
 sleep 2
 exit $?
+sudo reboot
