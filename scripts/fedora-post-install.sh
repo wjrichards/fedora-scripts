@@ -45,10 +45,6 @@ sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.co
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install brave-browser
 
-echo '------Installing Media Apps------'
-sleep 2
-sudo dnf install vlc
-
 echo '------Installing Design & Production Apps------'
 sleep 2
 sudo dnf install inkscape gimp
