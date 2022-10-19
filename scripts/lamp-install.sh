@@ -12,7 +12,7 @@ sleep 2
 
 # Installing Apache
 echo '---------Installing Apache---------'
-sudo yum install httpd
+sudo dnf install httpd
 sleep 2
 
 echo '---------Start httped---------'
@@ -21,7 +21,7 @@ sleep 2
 
 # Installing MySQL
 echo '---------Installing MySQL---------'
-sudo yum install mysql mysql-server
+sudo dnf install mysql mysql-server
 sleep 2
 
 echo '---------Start MySQL---------'
@@ -34,8 +34,6 @@ sleep 2
 
 # Installing PHP
 echo '---------Installing PHP---------'
-sudo yum install php php-mysql
+sudo dnf install php php-mysql
 sleep 2
 
-# Adding PHP Modules (Optional)
-echo '---------Adding PHP Modules---------'
