@@ -60,7 +60,6 @@ sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.m
 sudo dnf check-update
 sudo dnf install code
 
-
 echo '------Installing GNOME Extras------'
 sleep 2
 sudo dnf install gnome-music epiphany
